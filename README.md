@@ -10,7 +10,7 @@ This extension only copy precompiled binary `Fork.exe` into application director
 
 ## Installation
 ```shell
-composer require mvccore/ext-tool-cli-win-fork
+composer require mvccore/ext-tool-cli-winfork
 ```
 
 ## Usage
