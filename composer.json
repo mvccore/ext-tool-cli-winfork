@@ -1,0 +1,41 @@
+{
+	"name": "mvccore/ext-tool-cli-winfork",
+	"type": "library",
+	"description": "MvcCore - Extension - Tool - CLI - Windows Fork - .NET Framework 4 utility for CLI calls via PHP `shell_exec()` or `system()` to fork new process in background.",
+	"keywords": [
+		"mvc",
+		"mvccore",
+		"framework",
+		"extension",
+		"plugin",
+		"plug-in",
+		"ext",
+		"tool",
+		"cli",
+		"win",
+		"windows",
+		"fork",
+		"process",
+		"background"
+	],
+	"license": [ "BSD-3-Clause" ],
+	"authors": [{
+		"name": "Tom Flidr",
+		"homepage": "https://github.com/tomFlidr"
+	}],
+	"require": {
+		"php": ">=5.4.0",
+		"mvccore/mvccore": "^5.1.23",
+		"civicrm/composer-compile-plugin": "^0.18"
+	},
+	"autoload": {
+		"classmap": [ "src/" ]
+	},
+	"extra": {
+		"compile": [{
+			"run": "@php-script ./src/MvcCore/Ext/Tools/Clis/WinFork/Instalation.php"
+		}]
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true
+}
