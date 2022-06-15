@@ -55,7 +55,9 @@ Temporary Items
 # Project files
 obj/
 *.phpproj
+.vs
 *.phpproj.user
 *.csproj
 *.csproj.user
 composer.dev.json
+composer.dev.lock
