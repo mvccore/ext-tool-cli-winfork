@@ -16,24 +16,20 @@
  * @return void
  */
 call_user_func(function () {
-	$packageDir = realpath(dirname(__DIR__, 6));
+	$packageDir = str_replace('\\', '/', realpath(dirname(__DIR__, 6)));
 	$composerClsLoader = 'Composer\\Autoload\\ClassLoader';
 	$composerClsLoaderType = new \ReflectionClass($composerClsLoader);
-	$appRoot = dirname($composerClsLoaderType->getFileName(), 3);
+	$appRoot = str_replace('\\', '/', dirname($composerClsLoaderType->getFileName(), 3));
 	$app = \MvcCore\Application::GetInstance();
-	$srcDir = implode(DIRECTORY_SEPARATOR, [
+	$srcDir = implode('/', [
 		$packageDir,
 		'bin',
 		'Release'
 	]);
-	$cliDir = implode(DIRECTORY_SEPARATOR, [
-		$appRoot,
-		$app->GetAppDir(),
-		$app->GetCliDir()
-	]);
+	$cliDir = str_replace('~/', $appRoot . '/', $app->GetPathCli(FALSE));
 	$binFileName = 'Fork.exe';
-	$srcFullPath = $srcDir . DIRECTORY_SEPARATOR . $binFileName;
-	$targetFullPath = $cliDir . DIRECTORY_SEPARATOR . $binFileName;
+	$srcFullPath = $srcDir . '/' . $binFileName;
+	$targetFullPath = $cliDir . '/' . $binFileName;
 	// If there are any previous version - remove it:
 	if (file_exists($targetFullPath)) {
 		$removed = unlink($targetFullPath);
