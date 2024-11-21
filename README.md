@@ -1,6 +1,6 @@
 # MvcCore - Extension - Tool - CLI - Windows Fork
 
-[![Latest Stable Version](https://img.shields.io/badge/Stable-v5.0.0-brightgreen.svg?style=plastic)](https://github.com/mvccore/ext-tool-cli-winfork/releases)
+[![Latest Stable Version](https://img.shields.io/badge/Stable-v5.3.0-brightgreen.svg?style=plastic)](https://github.com/mvccore/ext-tool-cli-winfork/releases)
 [![License](https://img.shields.io/badge/License-BSD%203-brightgreen.svg?style=plastic)](https://mvccore.github.io/docs/mvccore/5.0.0/LICENSE.md)
 ![PHP Version](https://img.shields.io/badge/PHP->=5.4-brightgreen.svg?style=plastic)
 
@@ -29,11 +29,7 @@ $req = $app->GetRequest();
 $indexScriptAbsPath = $req->GetDocumentRoot() . $req->GetScriptName();
 $phpParams = "-d max_execution_time=0 -d memory_limit=-1";
 $bgProcessParams = "controller=bg-process action=calculate";
-$cliDirFullPath = implode('/', [
-	$req->GetAppRoot(),
-	$app->GetAppDir(),
-	$app->GetCliDir(),
-]);
+$cliDirFullPath = $app->GetPathCli(TRUE);
 
 // prepare bg command:
 $cmd = "php {$phpParams} {$indexScriptAbsPath} {$bgProcessParams}";
